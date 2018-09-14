@@ -75,6 +75,7 @@ def word2vec_train(combined, from_begin=False):
         model.train(combined, total_examples=model.corpus_count, epochs=model.epochs)
     else:
         model = gensim.models.Word2Vec.load('../parameter/Word2vec_model.pkl')
+        model.build_vocab(combined, update=True)
         model.train(combined, total_examples=model.corpus_count, epochs=model.epochs)
 
     model.save('../parameter/Word2vec_model.pkl')
