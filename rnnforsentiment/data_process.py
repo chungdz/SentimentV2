@@ -1,4 +1,3 @@
-import pandas as pd
 import numpy as np
 import multiprocessing
 from gensim.models.word2vec import Word2Vec

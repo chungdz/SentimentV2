@@ -9,7 +9,9 @@ n_epoch = 1
 def train(from_begin=False):
     # 训练模型，并保存
     print('Loading Data...')
-    combined, y = loadfile(['../traindata/neg_train.xlsx'], ['../traindata/pos_train.xlsx'], ['../traindata/neu_train.xlsx'])
+    combined, y = loadfile(['../traindata/neg_train.xlsx'],
+                           ['../traindata/pos_train.xlsx'],
+                           ['../traindata/neu_train.xlsx'])
     print(len(combined), len(y))
     print('Tokenising...')
     combined = tokenizer(combined)
@@ -35,6 +37,7 @@ def train(from_begin=False):
 
     print('Compiling the Model...')
     adam = Adam(decay=1e-6, epsilon=1e-8)
+    # adam = Adam(epsilon=1e-8)
     model.compile(loss='categorical_crossentropy', optimizer=adam, metrics=['accuracy'])
 
     print("Train...")  # batch_size=32)

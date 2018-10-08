@@ -3,8 +3,6 @@
 """
 预测
 """
-import pandas as pd
-import csv
 from rnnforsentiment.data_process import word2vec_load, tokenizer, get_data, batch_size, readxlsx
 import yaml
 from keras.models import model_from_yaml
@@ -56,7 +54,7 @@ if __name__ == '__main__':
     # predictSentiment('../predictdata/predicted_pos.xlsx', '../predictdata/result_pos.xlsx')
     # predictSentiment('../predictdata/predicted_neg.xlsx', '../predictdata/result_neg.xlsx')
     # predictSentiment('../predictdata/predicted_neu.xlsx', '../predictdata/result_neu.xlsx')
-    # predictSentiment('../predictdata/sample.xlsx', '../predictdata/result.xlsx')
-    predictSentiment('../predictdata/random.xlsx', '../predictdata/result_ran.xlsx')
+    predictSentiment('../predictdata/sample.xlsx', '../predictdata/result.xlsx')
+    # predictSentiment('../predictdata/random.xlsx', '../predictdata/result_ran.xlsx')
 
 
