@@ -5,38 +5,14 @@
 """
 from rnnforsentiment.data_process import vocab_dim, maxlen
 import numpy as np
-from keras.models import Sequential
 from keras.layers.embeddings import Embedding
-from keras.layers.recurrent import LSTM
-from keras.layers.core import Dense, Dropout
-from keras.layers import Dense, Activation, Dropout, Input, LSTM, Reshape, Lambda, RepeatVector
-from keras.models import load_model, Model
-import keras
-np.random.seed(1337)  # For Reproducibility
+from keras.layers import Dense, Activation, Dropout, Input, LSTM
+from keras.models import Model
 import sys
+
+np.random.seed(1337)  # For Reproducibility
 sys.setrecursionlimit(1000000)
-import yaml
 
-n_epoch = 1
-input_length = 100
-batch_size = 32
-
-
-##定义网络结构
-def rnnmodel(n_symbols, embedding_weights):
-    print('Defining a Simple Keras Model...')
-    model = Sequential()  # or Graph or whatever
-    model.add(Embedding(output_dim=vocab_dim,
-                        input_dim=n_symbols,
-                        mask_zero=True,
-                        weights=[embedding_weights],
-                        input_length=input_length,
-                        trainable=False))  # Adding Input Length
-    model.add(LSTM(output_dim=50, activation='tanh'))
-    # model.add(Dropout(0.5))
-    model.add(Dense(3, activation='softmax'))
-
-    return model
 
 def rnnModel(n_symbols, embedding_weights):
     #define input
@@ -46,7 +22,7 @@ def rnnModel(n_symbols, embedding_weights):
               output_dim=vocab_dim,
               mask_zero=True,
               weights=[embedding_weights],
-              input_length=input_length,
+              input_length=maxlen,
               trainable=False)(sentence_indices)
     #define LSTM 1
     X = LSTM(256, return_sequences=True)(embeddings)

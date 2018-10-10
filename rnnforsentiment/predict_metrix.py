@@ -3,11 +3,13 @@
 """
 预测
 """
-from rnnforsentiment.data_process import word2vec_load, tokenizer, get_data, batch_size, readxlsx
+from rnnforsentiment.data_process import word2vec_load, tokenizer, get_data, readxlsx
 import yaml
 from keras.models import model_from_yaml
 import numpy as np
 import xlsxwriter
+
+batch_size = 32
 
 def predictSentiment(filename, resultname):
     # string_file = pd.read_csv(filename, header=None, index_col=None)

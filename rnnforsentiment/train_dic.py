@@ -1,4 +1,4 @@
-from rnnforsentiment.data_process import word2vec_train, loadfile, tokenizer, readxlsx
+from rnnforsentiment.data_process import word2vec_train, tokenizer, readxlsx
 
 
 if __name__ == '__main__':

@@ -1,10 +1,11 @@
-from rnnforsentiment.data_process import loadfile, word2vec_load, tokenizer, get_data, batch_size
-from rnnforsentiment.rnnmodel import rnnmodel, rnnModel
+from rnnforsentiment.data_process import loadfile, word2vec_load, tokenizer, get_data
+from rnnforsentiment.rnnmodel import rnnModel
 from keras.optimizers import Adam
 import yaml
 from keras.models import model_from_yaml
-n_epoch = 1
 
+n_epoch = 10
+batch_size = 32
 
 def train(from_begin=False):
     # 训练模型，并保存

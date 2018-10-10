@@ -8,13 +8,13 @@ import jieba
 import keras
 import xlrd
 
-batch_size = 32
 cpu_count = multiprocessing.cpu_count()
 n_iterations = 3
 window_size = 7
 vocab_dim = 70
 n_exposures = 5
 maxlen = 100
+#input_length = 100
 
 def readxlsx(filenames, string_col=0):
     string_file = []
